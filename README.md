@@ -21,7 +21,7 @@ Para instalar y ejecutar este generador de ciudades medievales necesitarás:
 
 ```powershell
 # Usando Git
-git clone https://github.com/usuario/TownGeneratorOS.git
+git clone https://github.com/kroryan/TownGeneratorOS.git
 cd TownGeneratorOS
 
 # O descarga el ZIP manualmente y extráelo
