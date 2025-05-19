@@ -1,164 +1,182 @@
+Sure! Here’s the README translated into English:
+
+---
+
 # Medieval Fantasy City Generator
 
-Este proyecto es un generador de ciudades medievales de fantasía de código abierto basado en el [Medieval Fantasy City Generator](https://watabou.itch.io/medieval-fantasy-city-generator/) original (también disponible [aquí](http://fantasycities.watabou.ru/?size=15&seed=682063530)). Esta versión ha sido actualizada para ser compatible con las últimas versiones de las librerías Lime y OpenFL.
+This project is an open-source medieval fantasy city generator based on the original [Medieval Fantasy City Generator](https://watabou.itch.io/medieval-fantasy-city-generator/) (also available [here](http://fantasycities.watabou.ru/?size=15&seed=682063530)). This version has been updated to be compatible with the latest versions of the Lime and OpenFL libraries.
 
-## Requisitos Previos
+This is the very old version 8 years old fixed and improved.
 
-Para instalar y ejecutar este generador de ciudades medievales necesitarás:
+## Prerequisites
 
-1. **Haxe** (versión 4.2.0 o superior)
-   - [Descargar Haxe desde su sitio oficial](https://haxe.org/download/)
-   - Asegúrate de que esté en tu PATH después de la instalación
+To install and run this medieval city generator, you will need:
 
-2. **Haxelib** (viene con Haxe)
+1. **Haxe** (version 4.2.0 or higher)
 
-3. **Git** (opcional, para clonar el repositorio)
-   - [Descargar Git](https://git-scm.com/downloads)
+   * [Download Haxe from the official website](https://haxe.org/download/)
+   * Make sure it is added to your PATH after installation
 
-## Instalación Paso a Paso
+2. **Haxelib** (comes with Haxe)
 
-### 1. Clonar o Descargar el Repositorio
+3. **Git** (optional, for cloning the repository)
+
+   * [Download Git](https://git-scm.com/downloads)
+
+## Step-by-Step Installation
+
+### 1. Clone or Download the Repository
 
 ```powershell
-# Usando Git
-git clone https://github.com/usuario/TownGeneratorOS.git
+# Using Git
+git clone https://github.com/kroryen/TownGeneratorOS.git
 cd TownGeneratorOS
 
-# O descarga el ZIP manualmente y extráelo
+# Or download the ZIP manually and extract it
 ```
 
-### 2. Instalar las Dependencias
+### 2. Install Dependencies
 
-Abre una terminal (PowerShell o Command Prompt en Windows) y ejecuta:
+Open a terminal (PowerShell or Command Prompt on Windows) and run:
 
 ```powershell
-# Instalar Lime
+# Install Lime
 haxelib install lime 8.0.0
 haxelib run lime setup
 
-# Instalar OpenFL
+# Install OpenFL
 haxelib install openfl 9.2.0
 haxelib run openfl setup
 
-# Instalar msignal
+# Install msignal
 haxelib install msignal 1.2.5
 ```
 
-### 3. Probar la Instalación
+### 3. Verify the Installation
 
-Para verificar que todo está correctamente instalado:
+To check that everything is correctly installed:
 
 ```powershell
 haxelib list
 ```
 
-Deberías ver las librerías instaladas con sus respectivas versiones:
-- lime: [8.0.0]
-- openfl: [9.2.0]
-- msignal: [1.2.5]
+You should see the installed libraries with their versions:
 
-### 4. Compilar y Ejecutar el Proyecto
+* lime: \[8.0.0]
+* openfl: \[9.2.0]
+* msignal: \[1.2.5]
 
-#### Para HTML5 (navegador web):
+### 4. Compile and Run the Project
+
+#### For HTML5 (web browser)(This way you can use it with azgaar i have an azgaar repository with a branch call TOTALOCAL you can use that one, it is ready):
 
 ```powershell
 haxelib run openfl test html5
 ```
 
-Esto compilará el proyecto y lo abrirá en tu navegador predeterminado, normalmente en `http://localhost:3000`.
+This will compile the project and open it in your default browser, usually at `http://localhost:3000`.
 
-#### Para aplicación de escritorio (Neko):
+#### For desktop application (Neko):
 
 ```powershell
 haxelib run openfl test neko
 ```
 
-#### Para Windows:
+#### For Windows:
 
 ```powershell
 haxelib run openfl test windows
 ```
 
-## Cambios Realizados para Solucionar Problemas de Compatibilidad
+## Changes Made to Fix Compatibility Issues
 
-Los siguientes cambios fueron implementados para solucionar problemas de compatibilidad con las versiones actuales de Lime y OpenFL:
+The following changes were implemented to solve compatibility problems with the current versions of Lime and OpenFL:
 
-### 1. Actualización de Versiones de Dependencias
+### 1. Dependency Version Updates
 
-Se actualizaron las versiones de las librerías en el archivo `project.xml`:
-- Lime actualizado a la versión 8.0.0 (anteriormente 7.8.0)
-- OpenFL actualizado a la versión 9.2.0 (anteriormente 9.0.2)
+Library versions in `project.xml` were updated:
 
-### 2. Resolución de Problemas con Tipos de Datos
+* Lime updated to version 8.0.0 (previously 7.8.0)
+* OpenFL updated to version 9.2.0 (previously 9.0.2)
 
-Los principales errores corregidos estaban relacionados con incompatibilidades entre tipos de datos:
-- `lime.utils.Float32Array`, `lime.utils.Int32Array`, y `lime.utils.UInt32Array` ahora deben ser `lime.utils.DataPointer` en ciertos contextos
-- `openfl.utils.ByteArray` debe ser `lime.utils.Bytes` o `lime.utils.BytePointer` según el contexto
-- Las referencias obsoletas de `lime.math.ColorMatrix` y `lime.math.Matrix4` ahora usan `lime.utils.ArrayBufferView`
+### 2. Data Type Issues Fixed
 
-### 3. Actualizaciones de Sintaxis
+Main errors fixed were related to data type incompatibilities:
 
-La mayoría de las advertencias (que no impedían la compilación) se relacionaban con sintaxis obsoleta:
-- `@:enum abstract` está obsoleto y debe reemplazarse por `enum abstract`
-- `@:extern` está obsoleto y debe reemplazarse por `extern`
+* `lime.utils.Float32Array`, `lime.utils.Int32Array`, and `lime.utils.UInt32Array` should now be `lime.utils.DataPointer` in certain contexts
+* `openfl.utils.ByteArray` should be `lime.utils.Bytes` or `lime.utils.BytePointer` depending on context
+* Deprecated references to `lime.math.ColorMatrix` and `lime.math.Matrix4` now use `lime.utils.ArrayBufferView`
 
-Aunque estas advertencias aparecen en el código de las bibliotecas y no en el código del proyecto, no afectan la funcionalidad.
+### 3. Syntax Updates
 
-### 4. Correcciones en APIs WebGL/OpenGL
+Most warnings (that did not prevent compilation) were related to obsolete syntax:
 
-Se corrigieron tipos en las API de WebGL/OpenGL para que fueran compatibles con las nuevas versiones:
-- Ajustes en `WebGL2RenderContext` y `NativeOpenGLRenderContext` para usar los tipos correctos en los argumentos de funciones
+* `@:enum abstract` is deprecated and should be replaced with `enum abstract`
+* `@:extern` is deprecated and should be replaced with `extern`
 
-## Uso del Generador
+Although these warnings appear in library code, not project code, they do not affect functionality.
 
-1. **Interfaz Principal**: Al ejecutar la aplicación, verás una interfaz donde puedes seleccionar parámetros para tu ciudad.
+### 4. WebGL/OpenGL API Fixes
 
-2. **Generación de la Ciudad**: 
-   - Selecciona el tamaño de la ciudad
-   - Haz clic en generar para crear una nueva ciudad aleatoria
+Types in the WebGL/OpenGL APIs were fixed to be compatible with new versions:
 
-3. **Exploración**:
-   - Puedes hacer zoom utilizando la rueda del ratón
-   - Arrastra para moverte por el mapa
-   - La interfaz incluye botones para generar nuevas ciudades o modificar parámetros
+* Adjustments in `WebGL2RenderContext` and `NativeOpenGLRenderContext` to use correct types in function arguments
 
-## Resolución de Problemas Comunes
+## Using the Generator
 
-### Error al Instalar Lime o OpenFL
+1. **Main Interface**: When running the application, you will see an interface where you can select parameters for your city.
 
-Si encuentras errores durante la instalación de Lime u OpenFL, intenta:
+2. **City Generation**:
+
+   * Select the city size
+   * Click generate to create a new random city
+
+3. **Exploration**:
+
+   * Zoom using the mouse wheel
+   * Drag to move around the map
+   * The interface includes buttons to generate new cities or modify parameters
+
+## Common Troubleshooting
+
+### Error Installing Lime or OpenFL
+
+If you encounter errors during Lime or OpenFL installation, try:
 
 ```powershell
 haxelib run lime setup -y
 haxelib run openfl setup -y
 ```
 
-### Errores de Compilación
+### Compilation Errors
 
-Si encuentras errores relacionados con tipos, verifica que estés usando las versiones correctas de Lime (8.0.0) y OpenFL (9.2.0) especificadas en este README.
+If you encounter type-related errors, verify you are using the correct versions of Lime (8.0.0) and OpenFL (9.2.0) as specified in this README.
 
-### Errores en Tiempo de Ejecución
+### Runtime Errors
 
-Si la aplicación se compila pero falla al ejecutarse, puede deberse a:
-- Recursos faltantes en la carpeta `Assets`
-- Incompatibilidades con el navegador (prueba con Chrome si usas HTML5)
-- Problemas con la configuración de WebGL en tu sistema
+If the app compiles but crashes when running, it may be due to:
 
----
-
-## Notas Técnicas Adicionales
-
-- Los errores de tipo `lime.utils.X should be lime.utils.DataPointer` están relacionados con cambios en la API de Lime donde arrays tipados específicos ahora deben ser tratados como punteros de datos genéricos.
-
-- Las advertencias sobre `@:enum abstract` y `@:extern` son cambios de sintaxis en Haxe que no afectan la funcionalidad, pero que indican que las bibliotecas utilizan sintaxis obsoleta.
-
-- El puerto predeterminado para ejecución en modo HTML5 es el 3000, pero podría cambiar si ese puerto está ocupado.
+* Missing resources in the `Assets` folder
+* Browser incompatibility (try Chrome if using HTML5)
+* WebGL configuration issues on your system
 
 ---
 
-## Información Adicional
+## Additional Technical Notes
 
-- **Licencia**: Ver archivo LICENSE
-- **Versión**: 0.0.1
-- **Autor Original**: Oleg Dolya (Watabou)
-- **Actualización de Compatibilidad**: 19 de mayo de 2025
+* Errors like `lime.utils.X should be lime.utils.DataPointer` relate to Lime API changes where specific typed arrays must now be treated as generic data pointers.
+
+* Warnings about `@:enum abstract` and `@:extern` are syntax changes in Haxe that do not affect functionality but indicate libraries use deprecated syntax.
+
+* The default port for HTML5 mode is 3000 but may change if that port is busy.
+
+---
+
+## Additional Information
+
+* **License**: See LICENSE file
+* **Version**: 0.0.1
+* **Original Author**: Oleg Dolya (Watabou)
+* **Compatibility Update Date**: May 19, 2025
+
+---
