@@ -1,0 +1,92 @@
+{
+  "name": "medieval-city-generator",
+  "version": "1.0.0",
+  "description": "Medieval Fantasy City Generator - Desktop & Web Server",
+  "main": "main.js",
+  "scripts": {
+    "start": "npx electron .",
+    "build": "npx electron-builder",
+    "build-win": "npx electron-builder --win",
+    "build-linux": "npx electron-builder --linux",
+    "build-all": "npx electron-builder --win --linux",
+    "dev": "npx electron . --dev",
+    "build-web": "node build-web.js",
+    "prepare": "npm run build-web"
+  },
+  "build": {
+    "appId": "com.watabou.towngenerator",
+    "productName": "Medieval Fantasy City Generator",
+    "copyright": "Copyright © 2025 Watabou",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!src/**/*",
+      "!dist/**/*",
+      "!.git/**/*",
+      "!node_modules/.cache/**/*",
+      "!*.md",
+      "!*.ps1",
+      "!*.bat",
+      "!assets/create-icons.ps1"
+    ],
+    "extraResources": [
+      {
+        "from": "web-build",
+        "to": "web-build",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico",
+      "publisherName": "Medieval City Generator"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.png",
+      "category": "Game",
+      "synopsis": "Medieval Fantasy City Generator",
+      "description": "Generate beautiful medieval fantasy cities with this interactive tool"
+    },    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Medieval City Generator"
+    },
+    "portable": {
+      "artifactName": "Medieval-City-Generator-Portable-${version}.${ext}"
+    }
+  },
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "sharp": "^0.34.2"
+  }
+}
