@@ -389,6 +389,8 @@ The desktop app features a beautiful loading screen with:
 * **Help Menu**:
   * About - Application information
   * Server Information - Details about the local web server
+* **Generation menu**:  in the right at botton to avoid the menu in the half of the city image in azgaar ![image](https://github.com/user-attachments/assets/a5d7b803-fbc0-4405-87fd-76c07dc42389)
+
 
 #### Server Information
 
