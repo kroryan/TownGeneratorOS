@@ -29,7 +29,7 @@ To install and run this medieval city generator, you will need:
 
 ```powershell
 # Using Git
-git clone https://github.com/kroryen/TownGeneratorOS.git
+git clone https://github.com/kroryan/TownGeneratorOS.git
 cd TownGeneratorOS
 
 # Or download the ZIP manually and extract it
