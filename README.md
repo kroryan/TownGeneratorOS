@@ -2,7 +2,7 @@ Sure! Here’s the README translated into English:
 
 ---
 
-# Medieval Fantasy City Generator
+# Medieval Fantasy City Generator  [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/kroryan/TownGeneratorOS)
 
 This project is an open-source medieval fantasy city generator based on the original [Medieval Fantasy City Generator](https://watabou.itch.io/medieval-fantasy-city-generator/) (also available [here](http://fantasycities.watabou.ru/?size=15&seed=682063530)). This version has been updated to be compatible with the latest versions of the Lime and OpenFL libraries.
 
